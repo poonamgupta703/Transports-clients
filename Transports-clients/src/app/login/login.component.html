@@ -1,0 +1,65 @@
+
+<h1 style="text-align:center">
+         Welcome to Login Page
+      </h1>
+      <div class="login">
+        <h2 class="login-header">Log in</h2>
+        <form [formGroup]="loginForm" class="login-container" (ngSubmit)="checkLogin()">
+      
+          <p [ngClass]="{ 'has-error': isSubmitted && formControls.email.errors }">
+            <input type="email" [(ngModel)]="username" placeholder="User name" formControlName="email">
+          </p>
+      
+          <div *ngIf="isSubmitted && formControls.email.errors" class="help-block">
+            <div *ngIf="formControls.email.errors.required">User name is required</div>
+          </div>
+      
+          <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+            <input type="password" [(ngModel)]="password" placeholder="Password" formControlName="password">
+          </p>
+      
+          <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+            <div *ngIf="formControls.password.errors.required">Password is required</div>
+          </div>
+      
+          <p>
+            <input type="submit" value="Log in">
+          </p>
+        </form>
+    </div>
+
+<!-- <div class="container">
+      <div>
+        User Name : <input type="text" name="username" [(ngModel)]="username">
+        Password : <input type="password" name="password" [(ngModel)]="password">
+      </div>
+      <button (click)=checkLogin() class="btn btn-success">
+        Login
+      </button>
+    </div>
+<form [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="text" formControlName="email" class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && fval.email.errors }" placeholder="Enter email here" />
+    <div *ngIf="submitted && fval.email.errors" class="invalid-feedback">
+      <div *ngIf="fval.email.errors.required">Email is required</div>
+      <div *ngIf="fval.email.errors.email">Enter valid email address</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" formControlName="password" class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && fval.password.errors }" placeholder="Enter password here" />
+    <div *ngIf="submitted && fval.password.errors" class="invalid-feedback">
+      <div *ngIf="fval.password.errors.required">Password is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button [disabled]="loading" class="btn btn-primary">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+      Login
+    </button>
+    <a routerLink="/register" class="btn btn-link">Register</a>
+  </div>
+</form> -->

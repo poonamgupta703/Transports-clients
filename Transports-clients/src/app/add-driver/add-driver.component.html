@@ -1,0 +1,64 @@
+<div class="col-md-10">
+  <!-- Modal -->
+  <div class="modal-fade">
+  <div class="modal-dialog">
+  <!-- Modal content-->
+  <div class="row">
+  <div class="col-md-12 col-sm-12 col-lg-8 col-md-offset-1">
+    <div class="panel panel-primary body">
+    <div id="p1" class="panel-heading text-center" style="width:780px;">{{message}}</div>
+    <div class="panel-body">
+    <form class="form-validation border" #signupForm="ngForm">
+      <table style="background-color: gainsboro; width:750px;">
+      <div class="pull-right">
+       <button><span class="glyphicon glyphicon-remove"></span></button></div> 
+      
+      <div class="form-group col-md-6">
+        <label for="dId">Driver Id:</label>
+        <input type="text" [(ngModel)]="driver.dId" placeholder="Driver Id" name="dId" class="form-control"
+          id="dId" required autofocus maxlength="10">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="plant">Plant: </label>
+        <input type="text" required autofocus [(ngModel)]="driver.plant" placeholder="Plant" name="plant" class="form-control" id="plant">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="dName">Driver Name:</label>
+        <input required autofocus [(ngModel)]="driver.dName" placeholder="Driver Name" name="dName" class="form-control"
+          id="dName">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="phNo">Contact Number:</label>
+        <input [(ngModel)]="driver.phNo" required autofocus placeholder="Contact Number" name="phNo" class="form-control"
+          id="phNo" maxlength="11">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="licenceNo">Licence Number:</label>
+        <input [(ngModel)]="driver.licenceNo" required autofocus placeholder="Licence Number" name="licenceNo" class="form-control"
+          id="licenceNo">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="licenceExp">Licence Expiry Date</label>
+        <input type="datetime" [(ngModel)]="driver.licenceExp" required autofocus placeholder="Expiry Date" name="licenceExp" class="form-control"
+          id="licenceExp">
+      </div> 
+        <div class="form-group col-md-6">
+          <label for="createdDate">Created Date:</label>
+          <input type="datetime" required autofocus [(ngModel)]="driver.createdDate" placeholder="Created Date" name="createdDate" class="form-control"
+            id="createdDate">
+        </div>
+      </table>
+      <div id="bottom_top_border form-group col-md-12">
+          <button type="button" class="btn m-b-xs w-s btn-default pull-right" data-dismiss="driver" #closepopup (click)="clearform(signupForm);">Cancel</button>
+          <button type="submit" class="btn m-b-xs w-s btn-primary pull-right" (click)="createdriver(driver)">Save</button>
+        </div>       
+    
+    </form>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div class="col-md-2"></div>

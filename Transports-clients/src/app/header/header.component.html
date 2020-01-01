@@ -1,0 +1,35 @@
+<div class="header">
+    <a href="#default" class="logo"><font color="blue">Balaji Transport</font></a>
+    <div class="header-Center">
+      <a *ngIf="loginService.isUserLoggedIn()" style="margin-left:15px" routerLink="/Home">Home</a>
+      <a  *ngIf="loginService.isUserLoggedIn()" style="margin-left:15px" routerLink="/DriverDetails">Driver Master</a>
+      <a  *ngIf="loginService.isUserLoggedIn()" style="margin-left:15px" routerLink="/VehicleDetails">Vehicle Master</a>
+      <a  *ngIf="loginService.isUserLoggedIn()" style="margin-left:15px" routerLink="/FuelEntry">Fuel Entry</a>
+      <a  *ngIf="loginService.isUserLoggedIn()" style="margin-left:15px" routerLink="/Consolidated">Fuel Master</a>
+      
+    <!--   <div>
+         
+          <ul class="avtar header-right">
+            <div class="avtar header-right">
+              <img width="50" alt="Avatar" src="assets\images\avatar.png">
+            
+              <select class="avtar">          
+                <option value="">Profile</option>
+                <option value="">Log Out</option>
+              </select>
+            </div>
+           
+             </ul>
+         
+      </div>   -->
+        
+  </div>
+  
+ <div class="pull-right">
+        <i class="fa fa-user-circle-o" style="font-size:20px"></i>
+        <i><a *ngIf="loginService.isUserLoggedIn()" style="margin-left:15px" routerLink="/LogOut">Logout</a></i>
+  </div> 
+ 
+  </div>
+       
+  
