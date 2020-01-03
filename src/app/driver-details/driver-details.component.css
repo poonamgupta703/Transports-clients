@@ -1,0 +1,5 @@
+.scroll {
+    width: 1600px; height: 550px;
+    overflow: auto;
+    overflow-x: hidden;
+ }

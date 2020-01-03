@@ -1,0 +1,34 @@
+<div class= "container-fluid scroll">
+ 
+    <div class="col-md-12">
+        <h2> Driver Details</h2> 
+      <div class="pull-right"><b>Advance Search: &nbsp;</b><input type = "search" class= "pull-right" (change)="onSearch($event.target.value)"></div>     
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Driver Id</th>
+            <th>Plant</th>
+            <th>Driver Name</th>          
+            <th>Contact No</th>            
+            <th>Licence No</th>   
+            <th>Licence Expiry Date</th>     
+            <th>Created Date</th>       
+          </tr>
+        </thead>
+          <tbody>
+          <tr *ngFor="let driver of drivers">
+              <td>{{driver.dId}}</td> 
+              <td>{{driver.plant}}</td>
+             <td>{{driver.dName}}</td>   
+            <td>{{driver.phNo}}</td>
+            <td>{{driver.licenceNo}}</td>
+            <td>{{driver.licenceExp}}</td>
+            <td>{{driver.createdDate}}</td>                   
+             <td><button class="btn btn-danger" (click)="deleteDriver(driver)">Delete</button>&nbsp;
+             <button class="btn btn-primary" (click)="editDriver(driver)"> Edit</button></td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="btn btn-info" (click)="addDriver()"> Add Driver</button>
+        </div>
+      </div>
