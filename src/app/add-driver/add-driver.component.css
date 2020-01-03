@@ -1,0 +1,10 @@
+.border{
+    box-sizing: border-box;
+}
+
+.body{
+    width: 780px;
+    background-color: rgb(175, 165, 165);
+    
+
+}
