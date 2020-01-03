@@ -1,0 +1,103 @@
+<div class="container-fluid">
+<!-- <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport"> -->
+  <div> <h3><b><u> Consolidated View : </u></b></h3></div>
+  <div class="pull-right">
+    <p>
+      <a (click)="refresh()" class="btn btn-info btn-md">
+        <span class="glyphicon glyphicon-refresh"></span> Refresh
+      </a>
+    </p>
+  </div>
+  <div>
+    <div fxLayout fxLayoutAlign="center center">
+      <mat-form-field fxFlex="40%">
+        <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+    </div>
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+      <ng-container matColumnDef="plant">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Plant </th>
+        <td mat-cell *matCellDef="let fuelDto"> {{fuelDto.plant}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="vehicleNo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Vehicle No </th>
+        <td mat-cell *matCellDef="let fuelDto"> <a (click)="getFuelEntry(fuelDto.vehicleNo)"><span style="cursor:pointer"><br>{{fuelDto.vehicleNo}} </span></a></td>
+      </ng-container>
+
+      <ng-container matColumnDef="closingKm">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Total Kms </th>
+        <td mat-cell *matCellDef="let fuelDto"> {{fuelDto.closingKm}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="openingKm">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Total Fuel(in Ltrs) </th>
+        <td mat-cell *matCellDef="let fuelDto"> {{fuelDto.openingKm}} </td>
+      </ng-container>
+      <ng-container matColumnDef="fuelAmmount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Total Fuel Cost </th>
+        <td mat-cell *matCellDef="let fuelDto"> {{fuelDto.fuelAmmount}} </td>
+      </ng-container>
+      <ng-container matColumnDef="efficiency">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Average KMPL</th>
+        <td mat-cell *matCellDef="let fuelDto"> {{fuelDto.efficiency}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <!--  <mat-paginator [pageSizeOptions]="[5,10,15,20,50]" showFirstLastButtons></mat-paginator> -->
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    <!-- <button mat-raised-button color="accent" (click)="exportAsExcel()">Export Excel</button> -->
+  </div><br/>
+ 
+<div *ngIf="historyFlag">
+  <div> <h3><b> <u>View: All vehicles fuel log history entries.</u></b></h3><br></div>
+  <div #TABLE>
+    <table mat-table [dataSource]="vehicleDataSource" matSort class="mat-elevation-z8" #table>
+  <ng-container matColumnDef="plant">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Plant </th>
+    <td mat-cell *matCellDef="let fuelDto"> {{fuelDto.plant}}</td>
+  </ng-container>
+  <ng-container matColumnDef="vehicleNo">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Vehicle No </th>
+    <td mat-cell *matCellDef="let fuelDto"> <a href="#">{{fuelDto.vehicleNo}} </a></td>
+  </ng-container> 
+    <ng-container matColumnDef="fuelLtr">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Fuel(ltr)</th>
+    <td mat-cell *matCellDef="let fuelDto"> {{fuelDto.fuelLtr}} </td>
+  </ng-container>
+    <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+    <td mat-cell *matCellDef="let fuelDto"> {{fuelDto.date}} </td>
+  </ng-container>
+  <ng-container matColumnDef="closingKm">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Total Kms </th>
+    <td mat-cell *matCellDef="let fuelDto"> {{fuelDto.closingKm}} </td>
+  </ng-container>
+  <ng-container matColumnDef="openingKm">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Total Fuel(in Ltrs) </th>
+    <td mat-cell *matCellDef="let fuelDto"> {{fuelDto.openingKm}} </td>
+  </ng-container>
+  <ng-container matColumnDef="fuelAmmount">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Total Fuel Cost </th>
+    <td mat-cell *matCellDef="let fuelDto"> {{fuelDto.fuelAmmount}} </td>
+  </ng-container>
+  <ng-container matColumnDef="efficiency">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Average KMPL</th>
+    <td mat-cell *matCellDef="let fuelDto"> {{fuelDto.efficiency}} </td>
+  </ng-container> 
+   <tr mat-header-row *matHeaderRowDef="vehicleColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: vehicleColumns;"></tr>
+  </table>
+    <mat-paginator></mat-paginator>
+    
+  <button mat-raised-button color="accent" (click)="exportAsExcel()">Export Excel</button>
+  
+  
+  </div> 
+ </div>
+<!-- /cdk-virtual-scroll-viewport> -->
+</div>
+
+<div style="height: 150px;"></div>
+<!-- <app-footer></app-footer>  -->
